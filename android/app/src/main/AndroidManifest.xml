@@ -57,7 +57,8 @@
         <!-- 🌍 API KEY de Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCd9GN1_ozoMlKq7Ng-lPRmNTdI_MtdvW0"/>
+            android:value="${MAPS_API_KEY}" />
+
 
         <!-- 🗺️ Configuración para Google Play Services -->
         <meta-data
