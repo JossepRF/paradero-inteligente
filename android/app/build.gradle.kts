@@ -5,7 +5,8 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-def mapsApiKey = project.hasProperty('MAPS_API_KEY') ? project.MAPS_API_KEY : ""
+// ✅ CORREGIDO - Usar sintaxis Kotlin
+val mapsApiKey = "AIzaSyCd9GN1_ozoMlKq7Ng-lPRmNTdI_MtdvW0"
 
 android {
     namespace = "com.proyecto.paradero.paradero_inteligente"
@@ -33,6 +34,10 @@ android {
 
         // 🔧 Configuración específica para Google Maps
         multiDexEnabled = true
+
+        // ✅ AÑADIR ESTA LÍNEA para usar la API Key en el manifest
+        manifestPlaceholders["MAPS_API_KEY"] = mapsApiKey
+        buildConfigField("String", "MAPS_API_KEY", "\"$mapsApiKey\"")
     }
 
     buildTypes {
@@ -42,8 +47,8 @@ android {
             signingConfig = signingConfigs.getByName("debug")
 
             // ⚙️ Optimizaciones para release - CORREGIDO
-            isMinifyEnabled = true  // Debe ser true para usar shrinkResources
-            isShrinkResources = true  // Cambiar de shrinkResources a isShrinkResources
+            isMinifyEnabled = true
+            isShrinkResources = true
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
