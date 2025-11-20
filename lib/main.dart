@@ -48,7 +48,11 @@ class HomePage extends StatelessWidget {
                   children: [
                     Builder(
                       builder: (context) => IconButton(
-                        icon: const Icon(Icons.menu, color: Colors.white, size: 30),
+                        icon: const Icon(
+                          Icons.menu,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                         onPressed: () => Scaffold.of(context).openDrawer(),
                       ),
                     ),
@@ -81,10 +85,16 @@ class HomePage extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.1),
                               shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white.withOpacity(0.3), width: 2),
+                              border: Border.all(
+                                color: Colors.white.withOpacity(0.3),
+                                width: 2,
+                              ),
                             ),
-                            child: const Icon(Icons.directions_bus_rounded,
-                                color: Colors.white, size: 100),
+                            child: const Icon(
+                              Icons.directions_bus_rounded,
+                              color: Colors.white,
+                              size: 100,
+                            ),
                           ),
                         ),
 
@@ -139,7 +149,9 @@ class HomePage extends StatelessWidget {
                               elevation: 8,
                               shadowColor: Colors.black.withOpacity(0.3),
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 50, vertical: 20),
+                                horizontal: 50,
+                                vertical: 20,
+                              ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -147,7 +159,9 @@ class HomePage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const MapaPage()),
+                                MaterialPageRoute(
+                                  builder: (context) => const MapaPage(),
+                                ),
                               );
                             },
                             child: const Row(
@@ -173,9 +187,14 @@ class HomePage extends StatelessWidget {
                         OutlinedButton(
                           style: OutlinedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            side: const BorderSide(color: Colors.white, width: 2),
+                            side: const BorderSide(
+                              color: Colors.white,
+                              width: 2,
+                            ),
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 40, vertical: 15),
+                              horizontal: 40,
+                              vertical: 15,
+                            ),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -204,16 +223,28 @@ class HomePage extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.white.withOpacity(0.2)),
+                            border: Border.all(
+                              color: Colors.white.withOpacity(0.2),
+                            ),
                           ),
                           child: const Column(
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
-                                  InfoItem(icon: Icons.directions_bus, text: '2 Rutas'),
-                                  InfoItem(icon: Icons.schedule, text: '24/7'),
-                                  InfoItem(icon: Icons.location_on, text: 'En Tiempo Real'),
+                                  InfoItem(
+                                    icon: Icons.directions_bus,
+                                    text: '2 Rutas',
+                                  ),
+                                  InfoItem(
+                                    icon: Icons.schedule,
+                                    text: '6:30 AM - 5:30 PM',
+                                  ),
+                                  InfoItem(
+                                    icon: Icons.location_on,
+                                    text: 'En Tiempo Real',
+                                  ),
                                 ],
                               ),
                             ],
@@ -254,7 +285,11 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 10),
               const Text(
                 'Válidas para todas las rutas',
-                style: TextStyle(fontSize: 12, color: Colors.grey, fontStyle: FontStyle.italic),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             ],
           ),
@@ -275,10 +310,7 @@ class HomePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            tipo,
-            style: const TextStyle(fontWeight: FontWeight.w500),
-          ),
+          Text(tipo, style: const TextStyle(fontWeight: FontWeight.w500)),
           Text(
             precio,
             style: const TextStyle(
@@ -297,11 +329,7 @@ class InfoItem extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const InfoItem({
-    super.key,
-    required this.icon,
-    required this.text,
-  });
+  const InfoItem({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -309,10 +337,7 @@ class InfoItem extends StatelessWidget {
       children: [
         Icon(icon, color: Colors.white, size: 24),
         const SizedBox(height: 5),
-        Text(
-          text,
-          style: const TextStyle(color: Colors.white, fontSize: 12),
-        ),
+        Text(text, style: const TextStyle(color: Colors.white, fontSize: 12)),
       ],
     );
   }
@@ -340,7 +365,11 @@ class AppDrawer extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.directions_bus_rounded, color: Colors.white, size: 40),
+                const Icon(
+                  Icons.directions_bus_rounded,
+                  color: Colors.white,
+                  size: 40,
+                ),
                 const SizedBox(height: 10),
                 const Text(
                   'Paradero Inteligente',
@@ -369,8 +398,10 @@ class AppDrawer extends StatelessWidget {
             title: 'Mapa de Rutas',
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MapaPage()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MapaPage()),
+              );
             },
           ),
 
@@ -430,7 +461,8 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildDrawerItem(BuildContext context, {
+  Widget _buildDrawerItem(
+    BuildContext context, {
     required IconData icon,
     required String title,
     required VoidCallback onTap,
@@ -526,8 +558,16 @@ class AppDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildRutaInfo('Ruta B', 'Puente Grau - Hotel Las Dunas', Colors.blue),
-              _buildRutaInfo('Ruta R2', 'Washington - Las Palmeras', Colors.purple),
+              _buildRutaInfo(
+                'Ruta B',
+                'Puente Grau - Hotel Las Dunas',
+                Colors.blue,
+              ),
+              _buildRutaInfo(
+                'Ruta R2',
+                'Washington - Las Palmeras',
+                Colors.purple,
+              ),
               const SizedBox(height: 10),
               const Text(
                 'Todas las rutas operan de 5:00 AM a 11:00 PM',
@@ -553,16 +593,19 @@ class AppDrawer extends StatelessWidget {
       child: ListTile(
         leading: Container(
           padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           child: Text(
             ruta.substring(0, 1),
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-        title: Text(ruta, style: TextStyle(fontWeight: FontWeight.bold, color: color)),
+        title: Text(
+          ruta,
+          style: TextStyle(fontWeight: FontWeight.bold, color: color),
+        ),
         subtitle: Text(descripcion),
       ),
     );
@@ -579,7 +622,9 @@ class AppDrawer extends StatelessWidget {
           children: [
             Text('Paradero Inteligente v1.0'),
             SizedBox(height: 10),
-            Text('Aplicación desarrollada para facilitar el transporte urbano en Ica.'),
+            Text(
+              'Aplicación desarrollada para facilitar el transporte urbano en Ica.',
+            ),
             SizedBox(height: 10),
             Text('© 2024 Todos los derechos reservados.'),
           ],
@@ -602,7 +647,9 @@ class AppDrawer extends StatelessWidget {
         content: const Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Opciones de configuración estarán disponibles en futuras actualizaciones.'),
+            Text(
+              'Opciones de configuración estarán disponibles en futuras actualizaciones.',
+            ),
           ],
         ),
         actions: [
